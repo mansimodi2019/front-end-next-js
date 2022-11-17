@@ -1,5 +1,9 @@
 export default function index() {
-  return <></>;
+  return (
+    <>
+      <span>Redirect to Recipes</span>
+    </>
+  );
 }
 
 export const getServerSideProps = () => {

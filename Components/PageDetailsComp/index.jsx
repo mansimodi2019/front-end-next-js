@@ -16,7 +16,7 @@ const PageDetailsComp = ({
   img,
 }) => {
   return (
-    <>
+    <Box sx={{ display: "inline-block", width: "100%", mt: "20px" }}>
       <Container maxWidth="xl">
         <Grid container spacing={2}>
           <Grid item xs={12} md={5}>
@@ -215,7 +215,7 @@ const PageDetailsComp = ({
           </Grid>
         </Grid>
       </Container>
-    </>
+    </Box>
   );
 };
 

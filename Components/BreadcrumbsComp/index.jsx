@@ -3,33 +3,16 @@ import { Breadcrumbs, Container, Typography } from "@mui/material";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import Link from "@mui/material/Link";
 
-const BreadcrumbsComp = ({ mainTitle, mainLink }) => {
-  function handleClick(event) {
-    event.preventDefault();
-    console.info("You clicked a breadcrumb.");
-  }
-
+const BreadcrumbsComp = ({ mainTitle, mainLink, lastTitle }) => {
   const breadcrumbs = [
-    <Link
-      underline="hover"
-      key="1"
-      color="text.primary"
-      href={mainLink}
-      onClick={handleClick}
-    >
+    <Link underline="hover" key="1" color="text.primary" href="/">
+      HOME
+    </Link>,
+    <Link underline="hover" key="2" color="text.primary" href={mainLink}>
       {mainTitle}
     </Link>,
-    <Link
-      underline="hover"
-      key="2"
-      color="text.primary"
-      href="/"
-      onClick={handleClick}
-    >
-      BREAD
-    </Link>,
     <Typography key="3" color="text.primary">
-      QUICK BREAD
+      {lastTitle}
     </Typography>,
   ];
 
@@ -42,6 +25,7 @@ const BreadcrumbsComp = ({ mainTitle, mainLink }) => {
           mt: "60px",
         }}
       >
+        {/* {breadcrumbs.filter((item) => item?.props?.children !== undefined)} */}
         {breadcrumbs}
       </Breadcrumbs>
     </Container>

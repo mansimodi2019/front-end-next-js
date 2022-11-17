@@ -1,26 +1,30 @@
-import React from "react";
+import React, { useContext } from "react";
 import BreadcrumbsComp from "../Components/BreadcrumbsComp";
 import PageDetailsComp from "../Components/PageDetailsComp";
+import Context from "../Context";
 
 const About = () => {
+  const Data = useContext(Context);
+
   return (
     <>
-      <BreadcrumbsComp mainTitle="ABOUT" mainLink="/about" />
-
-      <PageDetailsComp
-        title="About"
-        description="This one-bow! banana bread — our 2018 Recipe of the Year — uses
-    the simplest ingredients, but is incredibly moist and flavorful.
-    While the recipe calls for a 50/50 mix of flours (all-purpose
-    and whole wheat), we often make the bread 100% whole wheat, and
-    honestly? No one can tell, it's that good! And not only is this
-    bread delicious — it's versatile."
-        prepTime="22min"
-        bakeTime="6hr to 7h 15mins"
-        totalTime="10hr 10 mins"
-        yieldDetails="8 loaf, 36 generous servings"
-        img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRO6DZo5Hv_rpuo5gd7kTtdA4Updx91hNkQEg&usqp=CAU"
+      <BreadcrumbsComp
+        mainTitle="ABOUT"
+        mainLink="/about"
+        lastTitle={Data?.aboutData?.title}
       />
+
+      {Data && (
+        <PageDetailsComp
+          title={Data?.aboutData?.title}
+          description={Data?.aboutData?.description}
+          prepTime={Data?.aboutData?.prepTime}
+          bakeTime={Data?.aboutData?.bakeTime}
+          totalTime={Data?.aboutData?.totalTime}
+          yieldDetails={Data?.aboutData?.yieldDetails}
+          img={Data?.aboutData?.img}
+        />
+      )}
     </>
   );
 };
